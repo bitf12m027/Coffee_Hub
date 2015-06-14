@@ -1,0 +1,268 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Content/bootstrap.js"></script>
+    <link href="~/Content/jquery.fancybox.css" rel="stylesheet" />
+
+    <link href="~/Content/jquery.fancybox-buttons.css" rel="stylesheet" />
+    <link href="~/Content/jquery.fancybox-thumbs.css" rel="stylesheet" />
+    <link href="~/Content/jquery.fancybox.css" rel="stylesheet" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style>
+        ul a {
+            color: #db9e29;
+            display: block;
+            font-family: 'UltraRegular';
+            font-weight: bolder;
+            font-size: 20px;
+            text-decoration: none;
+            outline: none;
+        }
+    </style>
+    
+</head>
+<body style="background: repeat; background-image: url(../Content/Images/bg-body.jpg); color: #d5b084; font-family: 'open_sansregular'; font-size: 14px; margin: 0; min-width: 960px; padding: 0;">
+    <div class="row">
+        <div class="col-lg-2"></div>
+        <div id="page" class="col-lg-8" style="background: repeat #f5f1e6; background-image: url(../Content/Images/bg-page.png); padding: 0px; margin-top: 30px; width: 940px; ">
+            <div>
+                <nav class="navbar navbar-btn " role="navigation">
+                    <div class="navbar-header">
+                        <a href="../"><img class="img-responsive" style="padding: 10px;" src="~/Content/Images/logo.jpg" alt="logo" /></a>
+                    </div>
+                    <div>
+                       
+                        <ul class="nav navbar-nav pull-right" style="margin-top:80px">
+                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                            <li>@Html.ActionLink("Menu", "Menu", "Home")</li>
+                            <li>@Html.ActionLink("Locations", "Locations", "Home")</li>
+                            <li>@Html.ActionLink("About Us", "AboutUs", "Home")</li>
+                            <li>@Html.ActionLink("Order", "Order", "Home")</li>
+                            <li>@Html.ActionLink("FeedBack", "FeedBack", "Home")</li>
+                        </ul>
+                        <form method="post" action="~/Home/Search">
+                            <div class="row pull-right" style="margin-top:30px">
+                                <div class="col-lg-8">
+                                    <input class="btn" placeholder=" search here" type="search" name="search" id="search" />
+                                </div>
+                                <div class="col-lg-4">
+                                    <input class="btn btn-primary" style="background-color:brown" value="Search" type="submit" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </nav>
+
+                @RenderBody()
+
+                @Scripts.Render("~/bundles/jquery")
+                @RenderSection("scripts", required: false)
+
+                <div id="footer" class="panel-collapse" style="">
+                    <div class="row">
+                        <div class="col-lg-8" style="background: url(../Content/Images/separator-blog-entry.png) repeat; width:940px">
+                            <h4> The Coffee Hub</h4>
+                            <p style=" font-size:16px; font:bolder">&copy; Company | Privacy | Terms</p>
+                        </div>
+                        <div class="col-lg-8" style="margin:10px">
+                            <p>This website has been designed by bitf12m027.If you're having problems , then don't hesitate to ask for help on the Forums.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-2"></div>
+    </div>
+    <script src="~/Content/jquery-1.10.1.min.js"></script>
+    <script src="~/Content/jquery-1.9.0.min.js"></script>
+    <script src="~/Content/jquery.mousewheel-3.0.6.pack.js"></script>
+    <script src="~/Content/jquery.fancybox.js"></script>
+    <script src="~/Content/jquery.fancybox.pack.js"></script>
+    <script src="~/Content/jquery.fancybox-buttons.js"></script>
+    <script src="~/Content/jquery.fancybox-thumbs.js"></script>
+    <script src="~/Content/jquery.fancybox.pack.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            /*
+             *  Simple image gallery. Uses default settings
+             */
+
+            $('.fancybox').fancybox();
+
+            /*
+             *  Different effects
+             */
+
+            // Change title type, overlay closing speed
+            $(".fancybox-effects-a").fancybox({
+                helpers: {
+                    title: {
+                        type: 'outside'
+                    },
+                    overlay: {
+                        speedOut: 0
+                    }
+                }
+            });
+
+            // Disable opening and closing animations, change title type
+            $(".fancybox-effects-b").fancybox({
+                openEffect: 'none',
+                closeEffect: 'none',
+
+                helpers: {
+                    title: {
+                        type: 'over'
+                    }
+                }
+            });
+
+            // Set custom style, close if clicked, change title type and overlay color
+            $(".fancybox-effects-c").fancybox({
+                wrapCSS: 'fancybox-custom',
+                closeClick: true,
+
+                openEffect: 'none',
+
+                helpers: {
+                    title: {
+                        type: 'inside'
+                    },
+                    overlay: {
+                        css: {
+                            'background': 'rgba(238,238,238,0.85)'
+                        }
+                    }
+                }
+            });
+
+            // Remove padding, set opening and closing animations, close if clicked and disable overlay
+            $(".fancybox-effects-d").fancybox({
+                padding: 0,
+
+                openEffect: 'elastic',
+                openSpeed: 150,
+
+                closeEffect: 'elastic',
+                closeSpeed: 150,
+
+                closeClick: true,
+
+                helpers: {
+                    overlay: null
+                }
+            });
+
+            /*
+             *  Button helper. Disable animations, hide close button, change title type and content
+             */
+
+            $('.fancybox-buttons').fancybox({
+                openEffect: 'none',
+                closeEffect: 'none',
+
+                prevEffect: 'none',
+                nextEffect: 'none',
+
+                closeBtn: false,
+
+                helpers: {
+                    title: {
+                        type: 'inside'
+                    },
+                    buttons: {}
+                },
+
+                afterLoad: function () {
+                    this.title = 'Image ' + (this.index + 1) + ' of ' + this.group.length + (this.title ? ' - ' + this.title : '');
+                }
+            });
+
+
+            /*
+             *  Thumbnail helper. Disable animations, hide close button, arrows and slide to next gallery item if clicked
+             */
+
+            $('.fancybox-thumbs').fancybox({
+                prevEffect: 'none',
+                nextEffect: 'none',
+
+                closeBtn: false,
+                arrows: false,
+                nextClick: true,
+
+                helpers: {
+                    thumbs: {
+                        width: 50,
+                        height: 50
+                    }
+                }
+            });
+
+            /*
+             *  Media helper. Group items, disable animations, hide arrows, enable media and button helpers.
+            */
+            $('.fancybox-media')
+                .attr('rel', 'media-gallery')
+                .fancybox({
+                    openEffect: 'none',
+                    closeEffect: 'none',
+                    prevEffect: 'none',
+                    nextEffect: 'none',
+
+                    arrows: false,
+                    helpers: {
+                        media: {},
+                        buttons: {}
+                    }
+                });
+
+            /*
+             *  Open manually
+             */
+
+            $("#fancybox-manual-a").click(function () {
+                $.fancybox.open('1_b.jpg');
+            });
+
+            $("#fancybox-manual-b").click(function () {
+                $.fancybox.open({
+                    href: 'iframe.html',
+                    type: 'iframe',
+                    padding: 5
+                });
+            });
+
+            $("#fancybox-manual-c").click(function () {
+                $.fancybox.open([
+                    {
+                        href: '1_b.jpg',
+                        title: 'My title'
+                    }, {
+                        href: '2_b.jpg',
+                        title: '2nd title'
+                    }, {
+                        href: '3_b.jpg'
+                    }
+                ], {
+                    helpers: {
+                        thumbs: {
+                            width: 75,
+                            height: 50
+                        }
+                    }
+                });
+            });
+
+
+        });
+    </script>
+
+</body>
+
+</html>

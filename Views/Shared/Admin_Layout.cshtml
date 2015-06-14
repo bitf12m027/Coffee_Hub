@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Content/bootstrap.js"></script>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style>
+        ul a {
+            color: #db9e29;
+            display: block;
+            font-family: 'UltraRegular';
+            font-weight: bolder;
+            font-size: 20px;
+            text-decoration: none;
+            outline: none;
+        }
+    </style>
+</head>
+<body style="background: repeat; background-image: url(../Content/Images/bg-body.jpg); color: #d5b084; font-family: 'open_sansregular'; font-size: 12px; margin: 0; min-width: 960px; padding: 0;">
+
+    <div id="page" class="col-lg-offset-2" style="background: repeat #f5f1e6; background-image: url(../Content/Images/bg-page.png); padding: 0px; margin-top: 30px; width: 940px; ">
+        <div>
+            <nav class="navbar navbar-btn " role="navigation">
+                <div class="navbar-header">
+                    <a href="../"><img style="padding: 10px;" src="~/Content/Images/logo.jpg" alt="logo" /></a>
+                </div>
+                <div>
+                    <div class="row pull-right" style="margin-top:30px; margin-right:30px">
+                        <div class="col-lg-4">
+                            <a href="../Admin/LogOut">
+                                <input class="btn btn-primary" type="submit" value="LogOut" style="background-color:brown">
+                            </a>
+                        </div>
+
+                    </div>
+                    <ul class="nav navbar-nav pull-right" style="margin-top:80px">
+                        <li>@Html.ActionLink("Home", "Home", "Admin")</li>
+                        <li>@Html.ActionLink("Menu", "Menu", "Admin")</li>
+                        <li>@Html.ActionLink("Orders Delivered", "OrdersDelivered", "Admin")</li>
+                    </ul>
+                </div>
+            </nav>
+
+            @RenderBody()
+
+            @Scripts.Render("~/bundles/jquery")
+            @RenderSection("scripts", required: false)
+
+            <div id="footer" class="panel-collapse" style="">
+                <div class="row">
+                    <div class="col-lg-8" style="background: url(../Content/Images/separator-blog-entry.png) repeat; width:940px">
+                        <h4> The Coffee Hub</h4>
+                        <p style=" font-size:16px; font:bolder">&copy; Company | Privacy | Terms</p>
+                    </div>
+                    <div class="col-lg-8" style="margin:10px">
+                        <p>This website has been designed by bitf12m027.If you're having problems , then don't hesitate to ask for help on the Forums.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

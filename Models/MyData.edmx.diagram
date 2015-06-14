@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="19737215b9354c41adb9738ddcded4aa" Name="Diagram1" ZoomLevel="97">
+        <EntityTypeShape EntityType="CoffeeHubModel.Admin" Width="1.5" PointX="7.375" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="CoffeeHubModel.menu" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="CoffeeHubModel.order" Width="1.5" PointX="5" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CoffeeHubModel.OrderMenu" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <AssociationConnector Association="CoffeeHubModel.FK_OrderMenu_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="CoffeeHubModel.FK_OrderMenu_ToTable_1" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="CoffeeHubModel.FeedBack" Width="1.5" PointX="0.75" PointY="4.125" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

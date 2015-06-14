@@ -1,0 +1,67 @@
+﻿@{    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div id="figure" class="img-responsive">
+                
+    <img src="~/Content/Images/headline-home.jpg"/>
+</div>
+<div class="row">
+    <div class="col-md-3">
+        <img src="~/Content/Images/whats-hot.jpg" />
+        <a href="Home/Menu" style="background-image: url(../Content/Images/bg-find-out2.png); display: inline-block; color: #f6f1e7; padding: 5px 10px; font-size: 16px; text-decoration: none; margin: 0 0 5px 30px; font-weight: bolder; font-family: 'UltraRegular'; padding: 5px 10px; text-align: center; ">Find Out More</a>
+    </div>
+    <div class="col-lg-9">
+        <img src="~/Content/Images/coffee1.gif" />
+        <img src="~/Content/Images/coffee2.gif" />
+        <img src="~/Content/Images/coffee3.gif" />
+    </div>
+    <div class="col-lg-7 col-lg-offset-2">
+        <fieldset style="border: dashed; padding-top:10%; padding-bottom:10%">
+
+            <div class="form-group">
+
+                <div class="col-sm-5 col-lg-offset-1">
+                    <input type="text" style="border:solid; width:100%" class="form-control" id="orderId" name="orderId" required placeholder="Order Id">
+                </div>
+                <div class="col-lg-3">
+                    <input class="btn btn-primary" style="background-color: brown; border: solid; padding-left: 20%; padding-right: 20%" type="submit" id="searchOrder" value="Check Status" />
+                </div>
+                <br />
+                <div class="col-lg-4 col-lg-offset-1" id="result" style="font-weight: bolder; font-size:14px; color:brown">
+
+                </div>
+                @Scripts.Render("~/bundles/jquery")
+                <script>
+                    $(document).ready(function () {
+
+                        $('#searchOrder').click(function () {
+
+                            var orderId = $('#orderId').val();
+
+
+                            $.getJSON("/home/CheckOrder?orderId=" + orderId, function (data) {
+
+                                if (data == 1) {
+                                    $('#result').text("Status: Deliverd");
+
+                                }
+                                else if (data == 0) {
+                                    $('#result').text("Status: Pending");
+                                }
+                                else {
+                                    $('#result').text("No order Exist");
+                                }
+                            });
+
+                        });
+
+                    });
+                </script>
+
+            </div>
+
+        </fieldset>
+
+    </div>
+</div>
