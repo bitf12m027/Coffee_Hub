@@ -1,0 +1,51 @@
+﻿
+@using Coffee_Hub.Models
+@model List<menu>
+
+
+
+<style>
+    a {
+        color: #bfcb75;
+        display: block;
+        font-family: 'UltraRegular';
+        font-size: 16px;
+        letter-spacing: -0.025em;
+        line-height: 16px;
+        padding: 14px 0 0;
+        text-decoration: none;
+        text-align: center;
+    }
+    p {
+        text-align: center;
+        font-size: 18px;
+        font-weight:400;
+    }
+
+    .fancybox-custom .fancybox-skin {
+        box-shadow: 0 0 50px #222;
+    }
+
+  
+</style>
+
+<div>
+    <div id="figure" class="img-responsive">
+
+        <img src="~/Content/Images/headline-menu.jpg" />
+    </div>              
+    @foreach (menu ob in Model)
+    {
+        <div class="col-md-3 col-lg-offset-2">
+            <form action="../Home/Details" method="post">
+                <a class="fancybox" href="~/Content/Images/@(ob.name + ".jpg")" >
+                    <img src="../Content/Images/@(ob.name + ".jpg")" /></a>
+                    <p>@ob.name</p>
+                    <p>$@ob.price</p>
+                    <input type="hidden" value="@ob.Id" name="detail" />
+                    <input class="btn btn-primary" style=" background-color:brown" type="submit" value="Details..." />
+</form>
+        </div>
+    }
+</div>
+

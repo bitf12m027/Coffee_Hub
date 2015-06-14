@@ -1,0 +1,55 @@
+﻿@{
+    ViewBag.Title = "FeedBack";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using Coffee_Hub.Models
+@model FeedBackMetaData
+<h2 style="color: #bfcb75; text-align: center">FeedBack</h2>
+
+@if ((int)Session["feedSuccessfull"] != 0)
+{
+    <div class="alert alert-success col-lg-5 col-lg-offset-1" role="alert" style="font-weight:bolder; font-size:16px;">Thank you for your FeedBack</div>
+}
+
+<form class="form-horizontal" action="~/Home/AddFeedBack" method="post">
+    @Html.ValidationSummary(true)
+    <div class="row">
+        <div class="col-md-8">
+            <div class="form-group">
+                <label for="name" class="col-sm-4 control-label">Name</label>
+
+                <div class="col-sm-6">
+                   <!-- <input type="text" class="form-control" id="name" name="name" style="border:groove" required placeholder="Full Name">-->
+                   
+                     @Html.TextBoxFor(m => m.name, new { @class = "form-control", Styles = "border:groove", Placeholder = "Full Name" })
+                    @Html.ValidationMessageFor(m => m.name)
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="email" class="col-sm-4 control-label">Email</label>
+                <div class="col-sm-6">
+                   <!-- <input type="Email" class="form-control" id="email" name="email" style="border:groove" required placeholder="Email">-->
+                    @Html.TextBoxFor(m => m.email, new { @class = "form-control", Styles = "border:groove", Placeholder = "Email" })
+                    @Html.ValidationMessageFor(m => m.email)
+                </div>
+            </div>
+           
+            <div class="form-group">
+                <label for="feed" class="col-sm-4 control-label">FeedBack</label>
+                <div class="col-sm-6">
+                    <!--<textarea class="form-control" id="feedvack" name="feedback" style="border:groove" required placeholder="FeedBack"></textarea>-->
+                    @Html.TextAreaFor(m => m.feed, new { @class = "form-control", Styles = "border:groove", Placeholder = "FeedBack" })
+                    @Html.ValidationMessageFor(m => m.feed)
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label class="col-sm-4 control-label"></label>
+                <div class="col-sm-4">
+                    <input type="submit" class="btn btn-primary" style="background-color:brown" value="Submit">
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
